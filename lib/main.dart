@@ -35,11 +35,11 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 
     return Scaffold(
+      backgroundColor: Colors.red[400],
       drawer: Drawer(),
       appBar: AppBar(
-
         title: Text("TODO", style: TextStyle(fontSize: 16.0),),
-        //backgroundColor: appColors[cardIndex],
+        backgroundColor: Colors.red[400],
         centerTitle: true,
         actions: <Widget>[
           Padding(
@@ -49,9 +49,33 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
         elevation: 0.0,
       ),
-      body: Center(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Row(),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 64.0, vertical: 32.0),
+            child: Container(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: Icon(Icons.account_circle, size: 45.0, color: Colors.white,),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 12.0),
+                    child: Text("Hey Neel", style: TextStyle(fontSize: 30.0, color: Colors.white),),
+                  ),
+                  Text("Todays Day is great for work.", style: TextStyle(color: Colors.white),),
+                  Text("You have 3 tasks to do today", style: TextStyle(color: Colors.white),)
+                ],
+              ),
+            ),
+          )
+        ],
+    ),
 
-      )
     );
   }
 }
