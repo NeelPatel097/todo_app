@@ -31,6 +31,19 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
+  var appColors = [Color.fromRGBO(231, 129, 109, 1.0), Color.fromRGBO(99, 138, 223, 1.0), Color.fromRGBO(111, 194, 173, 1.0)];
+  var cardIndex = 0;
+  late ScrollController scrollController;
+  var currentColor = Color.fromRGBO(231, 129, 109, 1.0);
+
+  var cardList = [CardItemModel("Personal", Icons.account_circle, 9, 0.083), CardItemModel("Work", Icons.work, 12, 0.24), CardItemModel("Home", Icons.home, 7, 0.32)];
+
+  @override
+  void initState(){
+    super.initState();
+    scrollController = new ScrollController();
+  }
+
   @override
   Widget build(BuildContext context) {
 
@@ -72,6 +85,48 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
             ),
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 64.0, vertical: 16.0),
+                child: Text("Today : September 3, 2021", style: TextStyle(color: Colors.white),),
+              ),
+              Container(
+                height: 350.0,
+                child: ListView.builder(
+                    physics: NeverScrollableScrollPhysics(),
+                    itemCount: 3,
+                    controller: scrollController,
+                    itemBuilder: (context, position) {
+                      return GestureDector(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Card(
+                            child: Container(
+                              width: 250.0,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: <Widget>[
+                                          Icon(cardsList[])
+                                        ],
+                                      ),)
+                                ],
+                              ),
+                            ),
+                          ),
+                        )
+                      )
+                    }),
+              )
+            ],
           )
         ],
     ),
